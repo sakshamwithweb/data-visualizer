@@ -1,8 +1,8 @@
-# CSV Data Visualizer
+# Data Visualizer
 
 ## Overview
 
-CSV Data Visualizer is a web application built with Next.js that allows users to upload CSV files and visualize the data through interactive charts. This project leverages the power of React and charting libraries to provide a user-friendly experience for data analysis and visualization.
+Data Visualizer is a web application built with Next.js that allows users to upload CSV code and visualize the data through interactive charts. This project leverages the power of Next.js and charting libraries to provide a user-friendly experience for data analysis and visualization.
 
 ## Features
 

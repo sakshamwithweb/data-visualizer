@@ -12,7 +12,7 @@ export default function Page({ params }) {
     const [chartExamples] = useState([
         {
             type: "Bar_Chart",
-            csvExample: "Category,Value\nA,10\nB,20\nC,30\nD,25\nE,15"
+            csvExample: "Category 1,Category 2,Category 3,Category 4\n10,20,30,40\n15,25,35,45\n20,30,40,50"
         },
         {
             type: "Line_Chart",
@@ -24,7 +24,7 @@ export default function Page({ params }) {
         },
         {
             type: "Histogram",
-            csvExample: "Range,Count\n0-10,5\n10-20,15\n20-30,25\n30-40,10"
+            csvExample: "23.5\n45.2\n22.1\n54.0\n36.5\n47.9\n49.3\n20.4\n30.0\n39.8\n22.5\n28.6\n35.7\n44.9\n31.2\n29.9\n42.3\n50.6\n24.1\n26.9\n49.7\n37.5\n31.8\n43.2\n29.0\n52.7\n34.6\n21.8\n27.4\n41.0\n46.8\n53.2\n48.6\n36.1\n38.0\n33.4\n45.6\n40.2\n32.9\n55.1"
         },
         {
             type: "Scatter_Plot",
@@ -32,11 +32,11 @@ export default function Page({ params }) {
         },
         {
             type: "Area_Chart",
-            csvExample: "Month,Value\nJan,30\nFeb,20\nMar,40\nApr,50\nMay,60"
+            csvExample: "Value,Month\n30,Jan\n20,Feb\n40,Mar\n50,Apr\n60,May"
         },
         {
             type: "Box_Plot",
-            csvExample: "Group,Value\nA,10\nA,15\nA,20\nB,20\nB,25\nB,30"
+            csvExample: "Dataset 1,Dataset 2,Dataset 3\n20,22,30\n21,23,32\n19,24,31\n22,25,33"
         },
         {
             type: "Heat_Map",

@@ -1,101 +1,68 @@
-import Image from "next/image";
+"use client";
+import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [ways] = useState([
+    {
+      name: "Bar Chart",
+      description: "Displays data using rectangular bars representing different categories. The length of each bar corresponds to its value."
+    },
+    {
+      name: "Line Chart",
+      description: "Connects individual data points with lines, showing trends over time."
+    },
+    {
+      name: "Pie Chart",
+      description: "A circular chart divided into slices to illustrate numerical proportions."
+    },
+    {
+      name: "Histogram",
+      description: "Similar to a bar chart but used to represent the distribution of numerical data by dividing the range into intervals (bins)."
+    },
+    {
+      name: "Scatter Plot",
+      description: "Uses dots to represent values for two different variables, revealing any correlation or pattern."
+    },
+    {
+      name: "Area Chart",
+      description: "Similar to a line chart, but the area below the line is filled, showing cumulative totals over time."
+    },
+    {
+      name: "Box Plot",
+      description: "Displays the distribution of data based on a five-number summary: minimum, first quartile, median, third quartile, and maximum."
+    },
+    {
+      name: "Heat Map",
+      description: "Represents data values in a matrix format, using colors to indicate different levels of intensity."
+    }
+  ]);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  return (
+    <div className="p-8 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 min-h-screen flex flex-col items-center">
+      <h1 className="text-5xl font-extrabold mb-12 text-gray-900 tracking-tight text-center">
+        Chart Types
+      </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+        {ways.map((way, index) => (
+          <Link
+            href={`/way/${way.name.replace(/ /g, '_')}`}
+            key={index}
+            className="relative p-8 border border-gray-200 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:scale-105 bg-white group"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+            <h2 className="text-2xl font-semibold text-gray-800 group-hover:text-purple-600 transition-colors duration-300 cursor-pointer">
+              {way.name}
+            </h2>
+            <p className="text-gray-600 mt-2 line-clamp-2">{way.shortDescription}</p>
+            <span
+              className="tooltip opacity-0 group-hover:opacity-100 absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white text-sm p-3 rounded-lg z-20 transition-opacity duration-300 shadow-lg pointer-events-none"
+            >
+              {way.description}
+            </span>
+          </Link>
+        ))}
+      </div>
     </div>
   );
+  
 }
